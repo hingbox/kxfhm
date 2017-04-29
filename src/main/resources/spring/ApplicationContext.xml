@@ -34,7 +34,8 @@
             </list>  
         </property>  
 	</bean> 
-	
+
+
 	<!-- 阿里 druid数据库连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">  
          <!-- 数据库基本信息配置 -->
@@ -118,7 +119,8 @@
 			<property name="successUrl" value="/main/index" />
 			
 			<property name="unauthorizedUrl" value="/login_toLogin" />
-			
+
+			<!-- 下面不需要身份验证地址为anno 否则就会被拦截-->
 			<property name="filterChainDefinitions">
 				<value>
 				/static/login/** 			= anon
