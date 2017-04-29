@@ -1,76 +1,76 @@
 =============================================================================
 
-/*·ÖÎªËÄ²½ */
+/*åˆ†ä¸ºå››æ­¥ */
 
-/*µÚ1²½£º´´½¨ÁÙÊ±±í¿Õ¼ä  */
+/*ç¬¬1æ­¥ï¼šåˆ›å»ºä¸´æ—¶è¡¨ç©ºé—´  */
 
-create temporary tablespace C##NEWO_TEMP  
+create temporary tablespace C##NEWO_TEMP
 
-tempfile 'E:\OracleTableSpace\NEWO\C##NEWO_TEMP.dbf' 
+tempfile 'E:\OracleTableSpace\NEWO\C##NEWO_TEMP.dbf'
 
-size 50m  
+size 50m
 
-autoextend on  
+autoextend on
 
-next 50m maxsize 20480m  
+next 50m maxsize 20480m
 
-extent management local;  
+extent management local;
 
- 
 
-/*µÚ2²½£º´´½¨Êı¾İ±í¿Õ¼ä  */
+
+/*ç¬¬2æ­¥ï¼šåˆ›å»ºæ•°æ®è¡¨ç©ºé—´  */
 
 create tablespace C##NEWO_DATA
 
-logging  
+logging
 
-datafile 'E:\OracleTableSpace\NEWO\C##NEWO_DATA.dbf' 
+datafile 'E:\OracleTableSpace\NEWO\C##NEWO_DATA.dbf'
 
-size 50m  
+size 50m
 
-autoextend on  
+autoextend on
 
-next 50m maxsize 20480m  
+next 50m maxsize 20480m
 
-extent management local;  
+extent management local;
 
- 
 
-/*µÚ3²½£º´´½¨ÓÃ»§²¢Ö¸¶¨±í¿Õ¼ä  */
+
+/*ç¬¬3æ­¥ï¼šåˆ›å»ºç”¨æˆ·å¹¶æŒ‡å®šè¡¨ç©ºé—´  */
 
 create user C##NEWO identified by root
 
 default tablespace C##NEWO_DATA
 
-temporary tablespace C##NEWO_TEMP;  
+temporary tablespace C##NEWO_TEMP;
 
- 
 
-/*µÚ4²½£º¸øÓÃ»§ÊÚÓèÈ¨ÏŞ  */
 
-grant connect,resource,dba to C##NEWO; 
+/*ç¬¬4æ­¥ï¼šç»™ç”¨æˆ·æˆäºˆæƒé™  */
+
+grant connect,resource,dba to C##NEWO;
 
 =====================================================================
 
 
 
 
-ÆäËü
+å…¶å®ƒ
 
-1.Èç¹ûÔÚPL/SQL µÈ¹¤¾ßÀï´ò¿ªµÄ»°£¬Ö±½ÓĞŞ¸ÄÏÂÃæµÄ´úÂëÖĞ[Ğ±Ìå¼Ó´Ö²¿·Ö]Ö´ĞĞ
+1.å¦‚æœåœ¨PL/SQL ç­‰å·¥å…·é‡Œæ‰“å¼€çš„è¯ï¼Œç›´æ¥ä¿®æ”¹ä¸‹é¢çš„ä»£ç ä¸­[æ–œä½“åŠ ç²—éƒ¨åˆ†]æ‰§è¡Œ
 
-2.È·±£Â·¾¶´æÔÚ£¬±ÈÈç¡¾D:\oracle\oradata\Oracle9i\¡¿Ò²¾ÍÊÇÄãÒª±£´æÎÄ¼şµÄÂ·¾¶´æÔÚ
+2.ç¡®ä¿è·¯å¾„å­˜åœ¨ï¼Œæ¯”å¦‚ã€D:\oracle\oradata\Oracle9i\ã€‘ä¹Ÿå°±æ˜¯ä½ è¦ä¿å­˜æ–‡ä»¶çš„è·¯å¾„å­˜åœ¨
 
 
--- Create the user  
+-- Create the user
 
-  create user USER2  --ÓÃ»§Ãû   identified by password --¿ÚÁî  
- default tablespace USERS          --Ä¬ÈÏ±í¿Õ¼ä
- temporary tablespace TEMP        --ÁÙÊ±±í¿Õ¼ä 
- ÊäÈësqlÓï¾ä£º
+  create user USER2  --ç”¨æˆ·å   identified by password --å£ä»¤
+ default tablespace USERS          --é»˜è®¤è¡¨ç©ºé—´
+ temporary tablespace TEMP        --ä¸´æ—¶è¡¨ç©ºé—´
+ è¾“å…¥sqlè¯­å¥ï¼š
 
 -- Grant/Revoke role privileges grant connect to USER2;grant resource to USER2;
 
-¸øÓÃ»§¸³ÓèÈ¨ÏŞ£¬°´F8Ö´ĞĞÓï¾ä
+ç»™ç”¨æˆ·èµ‹äºˆæƒé™ï¼ŒæŒ‰F8æ‰§è¡Œè¯­å¥
 
-oracle12c ´´½¨ÓÃ»§ÒªÒÔc##¿ªÍ·
+oracle12c åˆ›å»ºç”¨æˆ·è¦ä»¥c##å¼€å¤´
