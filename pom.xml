@@ -18,7 +18,11 @@
 
 	<dependencies>
 
-
+		<dependency>
+			<groupId>com.elab.core</groupId>
+			<artifactId>elab-core</artifactId>
+			<version>1.0.7</version>
+		</dependency>
 		<!-- spring start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
