@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdsMapper">
+	
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into TB_ADSADS(
+			TYPE,	
+			TITLE,	
+			PICTURE,	
+			STATUS,	
+			ONLINE,	
+			ONLINE_TIME,	
+			OFFLINE_TIME,	
+			CREATED,	
+			UPDATED,	
+			ADS_ID
+		) values (
+			#{TYPE},	
+			#{TITLE},	
+			#{PICTURE},	
+			#{STATUS},	
+			#{ONLINE},	
+			#{ONLINE_TIME},	
+			#{OFFLINE_TIME},	
+			#{CREATED},	
+			#{UPDATED},	
+			#{ADS_ID}
+		)
+	</insert>
+	
+	
+	<!-- 删除-->
+	<delete id="delete" parameterType="pd">
+		delete from TB_ADSADS
+		where 
+			ADS_ID = #{ADS_ID}
+	</delete>
+	
+	
+	<!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update  TB_ADSADS
+			set 
+				TYPE = #{TYPE},
+				TITLE = #{TITLE},
+				PICTURE = #{PICTURE},
+				ONLINE_TIME = #{ONLINE_TIME},
+				OFFLINE_TIME = #{OFFLINE_TIME},
+				CREATED = #{CREATED},
+				UPDATED = #{UPDATED},
+			ADS_ID = ADS_ID
+			where 
+				ADS_ID = #{ADS_ID}
+	</update>
+	
+	
+	<!-- 通过ID获取数据 -->
+	<select id="findById" parameterType="pd" resultType="pd">
+		select 
+			TYPE,	
+			TITLE,	
+			PICTURE,	
+			STATUS,	
+			ONLINE,	
+			ONLINE_TIME,	
+			OFFLINE_TIME,	
+			CREATED,	
+			UPDATED,	
+			ADS_ID
+		from 
+			TB_ADSADS
+		where 
+			ADS_ID = #{ADS_ID}
+	</select>
+	
+	
+	<!-- 列表 -->
+	<select id="datalistPage" parameterType="page" resultType="pd">
+		select
+				a.TYPE,	
+				a.TITLE,	
+				a.PICTURE,	
+				a.STATUS,	
+				a.ONLINE,	
+				a.ONLINE_TIME,	
+				a.OFFLINE_TIME,	
+				a.CREATED,	
+				a.UPDATED,	
+				a.ADS_ID
+		from 
+				TB_ADSADS a
+
+		where 1 = 1
+		<if test="pd.KEYW != null and pd.KEYW != ''"><!-- 关键词检索 -->
+			and
+			(
+			a.TITLE LIKE CONCAT(CONCAT('%', #{pd.KEYW}),'%')
+			)
+		</if>
+
+	</select>
+	
+	<!-- 列表(全部) -->
+	<select id="listAll" parameterType="pd" resultType="pd">
+		select
+				a.TYPE,	
+				a.TITLE,	
+				a.PICTURE,	
+				a.STATUS,	
+				a.ONLINE,	
+				a.ONLINE_TIME,	
+				a.OFFLINE_TIME,	
+				a.CREATED,	
+				a.UPDATED,	
+				a.ADS_ID
+		from 
+				TB_ADSADS a
+	</select>
+	
+	<!-- 批量删除 -->
+	<delete id="deleteAll" parameterType="String">
+		delete from TB_ADSADS
+		where 
+			ADS_ID in
+		<foreach item="item" index="index" collection="array" open="(" separator="," close=")">
+                 #{item}
+		</foreach>
+	</delete>
+	
+</mapper>

@@ -1,4 +1,4 @@
-package com.fh.service.${packageName}.${objectNameLower};
+package com.fh.service.ads;
 
 import java.util.List;
 
@@ -11,14 +11,13 @@ import com.fh.entity.Page;
 import com.fh.util.PageData;
 
 /**
- * @className：${objectName}Controller
- * @author：hingbox
- * @created：${nowDate?string("yyyy-MM-dd")}
- * @email：hingbox@163.com
- * @version 1.0
- */
-@Service("${objectNameLower}Service")
-public class ${objectName}Service {
+* 类名称：AdsController
+* 创建人：hingbox
+* 创建时间：2017-04-29
+* 邮箱：hingbox@163.com
+*/
+@Service("adsService")
+public class AdsService {
 
 	@Resource(name = "daoSupport")
 	private DaoSupport dao;
@@ -27,49 +26,49 @@ public class ${objectName}Service {
 	* 新增
 	*/
 	public void save(PageData pd)throws Exception{
-		dao.save("${objectName}Mapper.save", pd);
+		dao.save("AdsMapper.save", pd);
 	}
 	
 	/*
 	* 删除
 	*/
 	public void delete(PageData pd)throws Exception{
-		dao.delete("${objectName}Mapper.delete", pd);
+		dao.delete("AdsMapper.delete", pd);
 	}
 	
 	/*
 	* 修改
 	*/
 	public void edit(PageData pd)throws Exception{
-		dao.update("${objectName}Mapper.edit", pd);
+		dao.update("AdsMapper.edit", pd);
 	}
 	
 	/*
 	*列表
 	*/
 	public List<PageData> list(Page page)throws Exception{
-		return (List<PageData>)dao.findForList("${objectName}Mapper.datalistPage", page);
+		return (List<PageData>)dao.findForList("AdsMapper.datalistPage", page);
 	}
 	
 	/*
 	*列表(全部)
 	*/
 	public List<PageData> listAll(PageData pd)throws Exception{
-		return (List<PageData>)dao.findForList("${objectName}Mapper.listAll", pd);
+		return (List<PageData>)dao.findForList("AdsMapper.listAll", pd);
 	}
 	
 	/*
 	* 通过id获取数据
 	*/
 	public PageData findById(PageData pd)throws Exception{
-		return (PageData)dao.findForObject("${objectName}Mapper.findById", pd);
+		return (PageData)dao.findForObject("AdsMapper.findById", pd);
 	}
 	
 	/*
 	* 批量删除
 	*/
 	public void deleteAll(String[] ArrayDATA_IDS)throws Exception{
-		dao.delete("${objectName}Mapper.deleteAll", ArrayDATA_IDS);
+		dao.delete("AdsMapper.deleteAll", ArrayDATA_IDS);
 	}
 	
 }
