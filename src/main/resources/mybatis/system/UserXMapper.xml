@@ -4,7 +4,8 @@
 <mapper namespace="UserXMapper">
 	
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>  
-	
+	<!-- flushCache：如果设成true，当语句调用时一级二级缓存都会被清理掉。select语句默认是false-->
+	<!-- useCache：如果设成true，语句调用的结果会缓存在二级缓存里。select语句默认是true-->
 	<!-- 换皮肤-->
 	<update id="setSKIN" parameterType="pd" flushCache="false">
 		update SYS_USER set 
