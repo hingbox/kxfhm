@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="com.fh.util.ConfigHelper"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -87,7 +88,17 @@
 										<td>${var.TYPE}</td>
 										<td>${var.TITLE}</td>
 										<td>${var.PICTURE}</td>
-										<td>${var.STATUS}</td>
+										<% System.out.print("====="); %>
+										<td>
+											<c:choose>
+												<c:when test="${var.STATUS == '1'}">
+													有效1
+												</c:when>
+												<c:otherwise>
+													无效
+												</c:otherwise>
+											</c:choose>
+										</td>
 										<td>${var.ONLINE}</td>
 										<td>${var.ONLINE_TIME}</td>
 										<td>${var.OFFLINE_TIME}</td>

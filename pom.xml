@@ -548,7 +548,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>-->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
@@ -558,7 +558,7 @@
 					<username>tomcat</username>
 					<password>tomcat</password>
 				</configuration>
-			</plugin>
+			</plugin>-->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

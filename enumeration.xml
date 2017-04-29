@@ -775,4 +775,9 @@
         <value name="全屏图片模版" val="1"></value>
     </enumeration>
 
+    <enumeration type="10119" remark="状态">
+        <value name="无效" val="-1"></value>
+        <value name="有效" val="1"></value>
+    </enumeration>
+
 </enumerations>
