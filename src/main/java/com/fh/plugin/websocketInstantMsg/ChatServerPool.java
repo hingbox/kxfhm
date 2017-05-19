@@ -21,7 +21,7 @@ public class ChatServerPool {
 	
 	/**
 	 * 获取用户名
-	 * @param session
+	 * @param conn
 	 */
 	public static String getUserByKey(WebSocket conn){
 		return userconnections.get(conn);
@@ -46,7 +46,8 @@ public class ChatServerPool {
 	
 	/**
 	 * 向连接池中添加连接
-	 * @param inbound
+	 * @Param user
+	 * @param conn
 	 */
 	public static void addUser(String user, WebSocket conn){
 		userconnections.put(conn,user);	//添加连接
@@ -67,7 +68,7 @@ public class ChatServerPool {
 	
 	/**
 	 * 移除连接池中的连接
-	 * @param inbound
+	 * @param conn
 	 */
 	public static boolean removeUser(WebSocket conn){
 		if(userconnections.containsKey(conn)){
@@ -80,7 +81,7 @@ public class ChatServerPool {
 	
 	/**
 	 * 向特定的用户发送数据
-	 * @param user
+	 * @param conn
 	 * @param message
 	 */
 	public static void sendMessageToUser(WebSocket conn,String message){

@@ -102,7 +102,7 @@ public class ChatServer extends WebSocketServer{
 	
 	/**
 	 * 用户下线处理
-	 * @param user
+	 * @param conn
 	 */
 	public void userLeave(WebSocket conn){
 		String user = ChatServerPool.getUserByKey(conn);

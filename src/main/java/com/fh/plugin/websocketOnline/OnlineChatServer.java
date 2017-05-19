@@ -123,7 +123,7 @@ public class OnlineChatServer extends WebSocketServer{
 	
 	/**
 	 * 用户下线处理
-	 * @param user
+	 * @param conn
 	 */
 	public void userLeave(WebSocket conn){
 		OnlineChatServerPool.removeUser(conn);				//在连接池中移除连接
@@ -131,7 +131,7 @@ public class OnlineChatServer extends WebSocketServer{
 
 	/**
 	 * 获取在线总数
-	 * @param user
+	 * @param conn
 	 */
 	public void getUserCount(WebSocket conn){
 		JSONObject result = new JSONObject();
@@ -142,7 +142,7 @@ public class OnlineChatServer extends WebSocketServer{
 	
 	/**
 	 * 获取在线用户列表
-	 * @param user
+	 * @param conn
 	 */
 	public void getUserList(WebSocket conn){
 		JSONObject result = new JSONObject();
