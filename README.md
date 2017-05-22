@@ -1,2 +1,2 @@
 # kxfhm
-springmvc+mybatis
+springmvc+mybatis+bootstrap
